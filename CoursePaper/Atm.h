@@ -6,6 +6,11 @@ using namespace System::Windows::Forms;
 ref class Atm
 {
 	Panel^ atmPanel;
+	Control^ transferPanel;
+	Control^ withdrawPanel;
+	Control^ validationPanel;
+	Control^ menuPanel;
+	Control^ atmMessage;
 public:
 	Atm(Panel^ atmPanel);
 	void checkValid(Object^ sender, EventArgs^ e);

@@ -197,7 +197,12 @@ namespace CoursePaper {
 			this->atmMessage1 = (gcnew System::Windows::Forms::Label());
 			this->atmPanel1 = (gcnew System::Windows::Forms::Panel());
 			this->atmPanel2 = (gcnew System::Windows::Forms::Panel());
-			this->atmMessage2 = (gcnew System::Windows::Forms::Label());
+			this->validationPanel2 = (gcnew System::Windows::Forms::Panel());
+			this->numberValidationLabel2 = (gcnew System::Windows::Forms::Label());
+			this->numberValidationText2 = (gcnew System::Windows::Forms::TextBox());
+			this->pinValidationLabel2 = (gcnew System::Windows::Forms::Label());
+			this->pinValidationText2 = (gcnew System::Windows::Forms::TextBox());
+			this->validationButton2 = (gcnew System::Windows::Forms::Button());
 			this->menuPanel2 = (gcnew System::Windows::Forms::Panel());
 			this->transferMenuButton2 = (gcnew System::Windows::Forms::Button());
 			this->withdrawMenuButton2 = (gcnew System::Windows::Forms::Button());
@@ -214,22 +219,17 @@ namespace CoursePaper {
 			this->amountWithdrawText2 = (gcnew System::Windows::Forms::TextBox());
 			this->withdrawWithdrawButton2 = (gcnew System::Windows::Forms::Button());
 			this->backWithdrawButton2 = (gcnew System::Windows::Forms::Button());
-			this->validationPanel2 = (gcnew System::Windows::Forms::Panel());
-			this->numberValidationLabel2 = (gcnew System::Windows::Forms::Label());
-			this->numberValidationText2 = (gcnew System::Windows::Forms::TextBox());
-			this->pinValidationLabel2 = (gcnew System::Windows::Forms::Label());
-			this->pinValidationText2 = (gcnew System::Windows::Forms::TextBox());
-			this->validationButton2 = (gcnew System::Windows::Forms::Button());
+			this->atmMessage2 = (gcnew System::Windows::Forms::Label());
 			this->validationPanel1->SuspendLayout();
 			this->transferPanel1->SuspendLayout();
 			this->withdrawPanel1->SuspendLayout();
 			this->menuPanel1->SuspendLayout();
 			this->atmPanel1->SuspendLayout();
 			this->atmPanel2->SuspendLayout();
+			this->validationPanel2->SuspendLayout();
 			this->menuPanel2->SuspendLayout();
 			this->transferPanel2->SuspendLayout();
 			this->withdrawPanel2->SuspendLayout();
-			this->validationPanel2->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// validationPanel1
@@ -441,11 +441,11 @@ namespace CoursePaper {
 			// 
 			// atmPanel1
 			// 
+			this->atmPanel1->Controls->Add(this->withdrawPanel1);
+			this->atmPanel1->Controls->Add(this->atmMessage1);
 			this->atmPanel1->Controls->Add(this->validationPanel1);
 			this->atmPanel1->Controls->Add(this->menuPanel1);
 			this->atmPanel1->Controls->Add(this->transferPanel1);
-			this->atmPanel1->Controls->Add(this->withdrawPanel1);
-			this->atmPanel1->Controls->Add(this->atmMessage1);
 			this->atmPanel1->Location = System::Drawing::Point(12, 12);
 			this->atmPanel1->Name = L"atmPanel1";
 			this->atmPanel1->Size = System::Drawing::Size(162, 221);
@@ -453,25 +453,68 @@ namespace CoursePaper {
 			// 
 			// atmPanel2
 			// 
-			
+			this->atmPanel2->Controls->Add(this->withdrawPanel2);
+			this->atmPanel2->Controls->Add(this->atmMessage2);
 			this->atmPanel2->Controls->Add(this->validationPanel2);
 			this->atmPanel2->Controls->Add(this->menuPanel2);
 			this->atmPanel2->Controls->Add(this->transferPanel2);
-			this->atmPanel2->Controls->Add(this->withdrawPanel2);
-			this->atmPanel2->Controls->Add(this->atmMessage2);
 			this->atmPanel2->Location = System::Drawing::Point(180, 12);
 			this->atmPanel2->Name = L"atmPanel2";
 			this->atmPanel2->Size = System::Drawing::Size(162, 221);
 			this->atmPanel2->TabIndex = 5;
 			// 
-			// atmMessage2
+			// validationPanel2
 			// 
-			this->atmMessage2->AutoSize = true;
-			this->atmMessage2->Location = System::Drawing::Point(16, 6);
-			this->atmMessage2->Name = L"atmMessage2";
-			this->atmMessage2->Size = System::Drawing::Size(131, 34);
-			this->atmMessage2->TabIndex = 1;
-			this->atmMessage2->Text = L"Insert card number \r\n        and PIN";
+			this->validationPanel2->Controls->Add(this->numberValidationLabel2);
+			this->validationPanel2->Controls->Add(this->numberValidationText2);
+			this->validationPanel2->Controls->Add(this->pinValidationLabel2);
+			this->validationPanel2->Controls->Add(this->pinValidationText2);
+			this->validationPanel2->Controls->Add(this->validationButton2);
+			this->validationPanel2->Location = System::Drawing::Point(3, 45);
+			this->validationPanel2->Name = L"validationPanel2";
+			this->validationPanel2->Size = System::Drawing::Size(151, 130);
+			this->validationPanel2->TabIndex = 0;
+			// 
+			// numberValidationLabel2
+			// 
+			this->numberValidationLabel2->AutoSize = true;
+			this->numberValidationLabel2->Location = System::Drawing::Point(33, 5);
+			this->numberValidationLabel2->Name = L"numberValidationLabel2";
+			this->numberValidationLabel2->Size = System::Drawing::Size(90, 17);
+			this->numberValidationLabel2->TabIndex = 0;
+			this->numberValidationLabel2->Text = L"Card number";
+			// 
+			// numberValidationText2
+			// 
+			this->numberValidationText2->Location = System::Drawing::Point(8, 25);
+			this->numberValidationText2->Name = L"numberValidationText2";
+			this->numberValidationText2->Size = System::Drawing::Size(135, 22);
+			this->numberValidationText2->TabIndex = 2;
+			// 
+			// pinValidationLabel2
+			// 
+			this->pinValidationLabel2->AutoSize = true;
+			this->pinValidationLabel2->Location = System::Drawing::Point(60, 50);
+			this->pinValidationLabel2->Name = L"pinValidationLabel2";
+			this->pinValidationLabel2->Size = System::Drawing::Size(30, 17);
+			this->pinValidationLabel2->TabIndex = 1;
+			this->pinValidationLabel2->Text = L"PIN";
+			// 
+			// pinValidationText2
+			// 
+			this->pinValidationText2->Location = System::Drawing::Point(54, 70);
+			this->pinValidationText2->Name = L"pinValidationText2";
+			this->pinValidationText2->Size = System::Drawing::Size(42, 22);
+			this->pinValidationText2->TabIndex = 3;
+			// 
+			// validationButton2
+			// 
+			this->validationButton2->Location = System::Drawing::Point(34, 98);
+			this->validationButton2->Name = L"validationButton2";
+			this->validationButton2->Size = System::Drawing::Size(75, 23);
+			this->validationButton2->TabIndex = 4;
+			this->validationButton2->Text = L"Next";
+			this->validationButton2->UseVisualStyleBackColor = true;
 			// 
 			// menuPanel2
 			// 
@@ -618,58 +661,14 @@ namespace CoursePaper {
 			this->backWithdrawButton2->Text = L"Back";
 			this->backWithdrawButton2->UseVisualStyleBackColor = true;
 			// 
-			// validationPanel2
+			// atmMessage2
 			// 
-			this->validationPanel2->Controls->Add(this->numberValidationLabel2);
-			this->validationPanel2->Controls->Add(this->numberValidationText2);
-			this->validationPanel2->Controls->Add(this->pinValidationLabel2);
-			this->validationPanel2->Controls->Add(this->pinValidationText2);
-			this->validationPanel2->Controls->Add(this->validationButton2);
-			this->validationPanel2->Location = System::Drawing::Point(3, 45);
-			this->validationPanel2->Name = L"validationPanel2";
-			this->validationPanel2->Size = System::Drawing::Size(151, 130);
-			this->validationPanel2->TabIndex = 0;
-			// 
-			// numberValidationLabel2
-			// 
-			this->numberValidationLabel2->AutoSize = true;
-			this->numberValidationLabel2->Location = System::Drawing::Point(33, 5);
-			this->numberValidationLabel2->Name = L"numberValidationLabel2";
-			this->numberValidationLabel2->Size = System::Drawing::Size(90, 17);
-			this->numberValidationLabel2->TabIndex = 0;
-			this->numberValidationLabel2->Text = L"Card number";
-			// 
-			// numberValidationText2
-			// 
-			this->numberValidationText2->Location = System::Drawing::Point(8, 25);
-			this->numberValidationText2->Name = L"numberValidationText2";
-			this->numberValidationText2->Size = System::Drawing::Size(135, 22);
-			this->numberValidationText2->TabIndex = 2;
-			// 
-			// pinValidationLabel2
-			// 
-			this->pinValidationLabel2->AutoSize = true;
-			this->pinValidationLabel2->Location = System::Drawing::Point(60, 50);
-			this->pinValidationLabel2->Name = L"pinValidationLabel2";
-			this->pinValidationLabel2->Size = System::Drawing::Size(30, 17);
-			this->pinValidationLabel2->TabIndex = 1;
-			this->pinValidationLabel2->Text = L"PIN";
-			// 
-			// pinValidationText2
-			// 
-			this->pinValidationText2->Location = System::Drawing::Point(54, 70);
-			this->pinValidationText2->Name = L"pinValidationText2";
-			this->pinValidationText2->Size = System::Drawing::Size(42, 22);
-			this->pinValidationText2->TabIndex = 3;
-			// 
-			// validationButton2
-			// 
-			this->validationButton2->Location = System::Drawing::Point(34, 98);
-			this->validationButton2->Name = L"validationButton2";
-			this->validationButton2->Size = System::Drawing::Size(75, 23);
-			this->validationButton2->TabIndex = 4;
-			this->validationButton2->Text = L"Next";
-			this->validationButton2->UseVisualStyleBackColor = true;
+			this->atmMessage2->AutoSize = true;
+			this->atmMessage2->Location = System::Drawing::Point(16, 6);
+			this->atmMessage2->Name = L"atmMessage2";
+			this->atmMessage2->Size = System::Drawing::Size(131, 34);
+			this->atmMessage2->TabIndex = 1;
+			this->atmMessage2->Text = L"Insert card number \r\n        and PIN";
 			// 
 			// MainForm
 			// 
@@ -691,13 +690,13 @@ namespace CoursePaper {
 			this->atmPanel1->PerformLayout();
 			this->atmPanel2->ResumeLayout(false);
 			this->atmPanel2->PerformLayout();
+			this->validationPanel2->ResumeLayout(false);
+			this->validationPanel2->PerformLayout();
 			this->menuPanel2->ResumeLayout(false);
 			this->transferPanel2->ResumeLayout(false);
 			this->transferPanel2->PerformLayout();
 			this->withdrawPanel2->ResumeLayout(false);
 			this->withdrawPanel2->PerformLayout();
-			this->validationPanel2->ResumeLayout(false);
-			this->validationPanel2->PerformLayout();
 			this->ResumeLayout(false);
 
 		}
