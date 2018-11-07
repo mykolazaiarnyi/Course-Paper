@@ -138,18 +138,13 @@
     <ClCompile Include="Atm.cpp" />
     <ClCompile Include="DBConnecter.cpp" />
     <ClCompile Include="MainForm.cpp" />
-    <ClCompile Include="TransferCommand.cpp" />
-    <ClCompile Include="WithdrawCommand.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Atm.h" />
     <ClInclude Include="DBConnecter.h" />
-    <ClInclude Include="IExecutable.h" />
     <ClInclude Include="MainForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
-    <ClInclude Include="TransferCommand.h" />
-    <ClInclude Include="WithdrawCommand.h" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="MainForm.resx">
