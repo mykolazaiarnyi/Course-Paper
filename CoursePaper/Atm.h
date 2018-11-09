@@ -5,13 +5,13 @@ using namespace System::Windows::Forms;
 
 ref class Atm
 {
-	Panel^ atmPanel;
+	Panel^ atmPanel;	
+	Control^ validationPanel;
+public:
+	Control^ menuPanel;
 	Control^ transferPanel;
 	Control^ withdrawPanel;
-	Control^ validationPanel;
-	Control^ menuPanel;
 	Control^ atmMessage;
-public:
 	Atm(Panel^ atmPanel);
 	void checkValid(Object^ sender, EventArgs^ e);
 	void goToTransfer(Object^ sender, EventArgs^ e);

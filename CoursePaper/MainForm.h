@@ -1,6 +1,7 @@
 #pragma once
 #include"DBConnecter.h"
 #include"Atm.h"
+#include"Gateway.h"
 
 namespace CoursePaper {
 
@@ -20,8 +21,6 @@ namespace CoursePaper {
 		MainForm(void)
 		{
 			InitializeComponent();
-
-			DBConnecter::DBConnecter();
 
 			atm1 = gcnew Atm(atmPanel1);
 			validationButton1->Click += gcnew EventHandler(atm1, &Atm::checkValid);
@@ -60,6 +59,7 @@ namespace CoursePaper {
 			{
 				delete components;
 			}
+			Gateway::thread->Abort();
 		}
 	private: System::Windows::Forms::Panel^  validationPanel1;
 
@@ -109,56 +109,7 @@ namespace CoursePaper {
 	private: System::Windows::Forms::TextBox^  amountWithdrawText2;
 	private: System::Windows::Forms::Button^  withdrawWithdrawButton2;
 	private: System::Windows::Forms::Button^  backWithdrawButton2;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	private: System::Windows::Forms::Label^  atmMessage2;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	private:
 		/// <summary>
 		/// Required designer variable.

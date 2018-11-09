@@ -1,5 +1,8 @@
 #include "Atm.h"
 #include "DBConnecter.h"
+#include "Gateway.h"
+#include "TransferCommand.h"
+#include "WithdrawCommand.h"
 
 using namespace System;
 using namespace System::Windows::Forms;
@@ -63,16 +66,10 @@ void Atm::makeTransfer(Object^ sender, EventArgs^ e)
 		long long _sender = Int64::Parse(validationPanel->Controls[1]->Text);
 		double amount = Double::Parse(transferPanel->Controls[3]->Text);
 		if (DBConnecter::exists(receiver)->Equals(true))
-			if (DBConnecter::checkMoney(_sender, amount)->Equals(true))
-			{
-				DBConnecter::sendMoney(_sender, receiver, amount);
-				atmMessage->Text = "Success";
-				transferPanel->Controls[1]->Text = "";
-				transferPanel->Controls[3]->Text = "";
-				back(sender, e);
-			}
-			else
-				atmMessage->Text = "You don\'t have\n   enough money";
+		{
+			Gateway::queue->Enqueue(gcnew TransferCommand(_sender, receiver, amount, this));
+			transferPanel->Enabled = false;
+		}
 		else
 			atmMessage->Text = "Wrong receivers\'\n     number";
 	}
@@ -87,15 +84,8 @@ void Atm::makeWithdraw(Object^ sender, EventArgs^ e)
 	try {
 		double amount = Double::Parse(withdrawPanel->Controls[1]->Text);
 		long long number = Int64::Parse(validationPanel->Controls[1]->Text);
-		if (DBConnecter::checkMoney(number, amount)->Equals(true))
-		{
-			DBConnecter::updateMoney(number, amount);
-			atmMessage->Text = "Success";
-			withdrawPanel->Controls[1]->Text = "";
-			back(sender, e);
-		}
-		else
-			atmMessage->Text = "You don\'t have\n  enough money";
+		Gateway::queue->Enqueue(gcnew WithdrawCommand(number, amount, this));
+		withdrawPanel->Enabled = false;
 	}
 	catch (Exception^ e)
 	{
@@ -105,10 +95,17 @@ void Atm::makeWithdraw(Object^ sender, EventArgs^ e)
 
 void Atm::back(Object^ sender, EventArgs^ e)
 {
-	if(transferPanel->Visible)
+	if (transferPanel->Visible)
+	{
 		transferPanel->Hide();
-	if(withdrawPanel->Visible)
+		transferPanel->Controls[1]->Text = "";
+		transferPanel->Controls[3]->Text = "";
+	}
+	if (withdrawPanel->Visible)
+	{
 		withdrawPanel->Hide();
+		withdrawPanel->Controls[1]->Text = "";
+	}
 	menuPanel->Show();
 	atmMessage->Text = "Choose an option";
 }
