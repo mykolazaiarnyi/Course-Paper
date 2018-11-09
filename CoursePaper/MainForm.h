@@ -148,6 +148,12 @@ namespace CoursePaper {
 			this->atmMessage1 = (gcnew System::Windows::Forms::Label());
 			this->atmPanel1 = (gcnew System::Windows::Forms::Panel());
 			this->atmPanel2 = (gcnew System::Windows::Forms::Panel());
+			this->withdrawPanel2 = (gcnew System::Windows::Forms::Panel());
+			this->amountWithdrawLabel2 = (gcnew System::Windows::Forms::Label());
+			this->amountWithdrawText2 = (gcnew System::Windows::Forms::TextBox());
+			this->withdrawWithdrawButton2 = (gcnew System::Windows::Forms::Button());
+			this->backWithdrawButton2 = (gcnew System::Windows::Forms::Button());
+			this->atmMessage2 = (gcnew System::Windows::Forms::Label());
 			this->validationPanel2 = (gcnew System::Windows::Forms::Panel());
 			this->numberValidationLabel2 = (gcnew System::Windows::Forms::Label());
 			this->numberValidationText2 = (gcnew System::Windows::Forms::TextBox());
@@ -165,22 +171,16 @@ namespace CoursePaper {
 			this->amountTransferText2 = (gcnew System::Windows::Forms::TextBox());
 			this->transferTransferButton2 = (gcnew System::Windows::Forms::Button());
 			this->backTransferButton2 = (gcnew System::Windows::Forms::Button());
-			this->withdrawPanel2 = (gcnew System::Windows::Forms::Panel());
-			this->amountWithdrawLabel2 = (gcnew System::Windows::Forms::Label());
-			this->amountWithdrawText2 = (gcnew System::Windows::Forms::TextBox());
-			this->withdrawWithdrawButton2 = (gcnew System::Windows::Forms::Button());
-			this->backWithdrawButton2 = (gcnew System::Windows::Forms::Button());
-			this->atmMessage2 = (gcnew System::Windows::Forms::Label());
 			this->validationPanel1->SuspendLayout();
 			this->transferPanel1->SuspendLayout();
 			this->withdrawPanel1->SuspendLayout();
 			this->menuPanel1->SuspendLayout();
 			this->atmPanel1->SuspendLayout();
 			this->atmPanel2->SuspendLayout();
+			this->withdrawPanel2->SuspendLayout();
 			this->validationPanel2->SuspendLayout();
 			this->menuPanel2->SuspendLayout();
 			this->transferPanel2->SuspendLayout();
-			this->withdrawPanel2->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// validationPanel1
@@ -414,6 +414,60 @@ namespace CoursePaper {
 			this->atmPanel2->Size = System::Drawing::Size(162, 221);
 			this->atmPanel2->TabIndex = 5;
 			// 
+			// withdrawPanel2
+			// 
+			this->withdrawPanel2->Controls->Add(this->amountWithdrawLabel2);
+			this->withdrawPanel2->Controls->Add(this->amountWithdrawText2);
+			this->withdrawPanel2->Controls->Add(this->withdrawWithdrawButton2);
+			this->withdrawPanel2->Controls->Add(this->backWithdrawButton2);
+			this->withdrawPanel2->Location = System::Drawing::Point(21, 44);
+			this->withdrawPanel2->Name = L"withdrawPanel2";
+			this->withdrawPanel2->Size = System::Drawing::Size(106, 153);
+			this->withdrawPanel2->TabIndex = 3;
+			// 
+			// amountWithdrawLabel2
+			// 
+			this->amountWithdrawLabel2->AutoSize = true;
+			this->amountWithdrawLabel2->Location = System::Drawing::Point(26, 9);
+			this->amountWithdrawLabel2->Name = L"amountWithdrawLabel2";
+			this->amountWithdrawLabel2->Size = System::Drawing::Size(56, 17);
+			this->amountWithdrawLabel2->TabIndex = 0;
+			this->amountWithdrawLabel2->Text = L"Amount";
+			// 
+			// amountWithdrawText2
+			// 
+			this->amountWithdrawText2->Location = System::Drawing::Point(3, 30);
+			this->amountWithdrawText2->Name = L"amountWithdrawText2";
+			this->amountWithdrawText2->Size = System::Drawing::Size(100, 22);
+			this->amountWithdrawText2->TabIndex = 2;
+			// 
+			// withdrawWithdrawButton2
+			// 
+			this->withdrawWithdrawButton2->Location = System::Drawing::Point(10, 57);
+			this->withdrawWithdrawButton2->Name = L"withdrawWithdrawButton2";
+			this->withdrawWithdrawButton2->Size = System::Drawing::Size(88, 23);
+			this->withdrawWithdrawButton2->TabIndex = 3;
+			this->withdrawWithdrawButton2->Text = L"Withdraw";
+			this->withdrawWithdrawButton2->UseVisualStyleBackColor = true;
+			// 
+			// backWithdrawButton2
+			// 
+			this->backWithdrawButton2->Location = System::Drawing::Point(24, 86);
+			this->backWithdrawButton2->Name = L"backWithdrawButton2";
+			this->backWithdrawButton2->Size = System::Drawing::Size(55, 23);
+			this->backWithdrawButton2->TabIndex = 4;
+			this->backWithdrawButton2->Text = L"Back";
+			this->backWithdrawButton2->UseVisualStyleBackColor = true;
+			// 
+			// atmMessage2
+			// 
+			this->atmMessage2->AutoSize = true;
+			this->atmMessage2->Location = System::Drawing::Point(16, 6);
+			this->atmMessage2->Name = L"atmMessage2";
+			this->atmMessage2->Size = System::Drawing::Size(131, 34);
+			this->atmMessage2->TabIndex = 1;
+			this->atmMessage2->Text = L"Insert card number \r\n        and PIN";
+			// 
 			// validationPanel2
 			// 
 			this->validationPanel2->Controls->Add(this->numberValidationLabel2);
@@ -567,65 +621,11 @@ namespace CoursePaper {
 			this->backTransferButton2->Text = L"Back";
 			this->backTransferButton2->UseVisualStyleBackColor = true;
 			// 
-			// withdrawPanel2
-			// 
-			this->withdrawPanel2->Controls->Add(this->amountWithdrawLabel2);
-			this->withdrawPanel2->Controls->Add(this->amountWithdrawText2);
-			this->withdrawPanel2->Controls->Add(this->withdrawWithdrawButton2);
-			this->withdrawPanel2->Controls->Add(this->backWithdrawButton2);
-			this->withdrawPanel2->Location = System::Drawing::Point(21, 44);
-			this->withdrawPanel2->Name = L"withdrawPanel2";
-			this->withdrawPanel2->Size = System::Drawing::Size(106, 153);
-			this->withdrawPanel2->TabIndex = 3;
-			// 
-			// amountWithdrawLabel2
-			// 
-			this->amountWithdrawLabel2->AutoSize = true;
-			this->amountWithdrawLabel2->Location = System::Drawing::Point(26, 9);
-			this->amountWithdrawLabel2->Name = L"amountWithdrawLabel2";
-			this->amountWithdrawLabel2->Size = System::Drawing::Size(56, 17);
-			this->amountWithdrawLabel2->TabIndex = 0;
-			this->amountWithdrawLabel2->Text = L"Amount";
-			// 
-			// amountWithdrawText2
-			// 
-			this->amountWithdrawText2->Location = System::Drawing::Point(3, 30);
-			this->amountWithdrawText2->Name = L"amountWithdrawText2";
-			this->amountWithdrawText2->Size = System::Drawing::Size(100, 22);
-			this->amountWithdrawText2->TabIndex = 2;
-			// 
-			// withdrawWithdrawButton2
-			// 
-			this->withdrawWithdrawButton2->Location = System::Drawing::Point(10, 57);
-			this->withdrawWithdrawButton2->Name = L"withdrawWithdrawButton2";
-			this->withdrawWithdrawButton2->Size = System::Drawing::Size(88, 23);
-			this->withdrawWithdrawButton2->TabIndex = 3;
-			this->withdrawWithdrawButton2->Text = L"Withdraw";
-			this->withdrawWithdrawButton2->UseVisualStyleBackColor = true;
-			// 
-			// backWithdrawButton2
-			// 
-			this->backWithdrawButton2->Location = System::Drawing::Point(24, 86);
-			this->backWithdrawButton2->Name = L"backWithdrawButton2";
-			this->backWithdrawButton2->Size = System::Drawing::Size(55, 23);
-			this->backWithdrawButton2->TabIndex = 4;
-			this->backWithdrawButton2->Text = L"Back";
-			this->backWithdrawButton2->UseVisualStyleBackColor = true;
-			// 
-			// atmMessage2
-			// 
-			this->atmMessage2->AutoSize = true;
-			this->atmMessage2->Location = System::Drawing::Point(16, 6);
-			this->atmMessage2->Name = L"atmMessage2";
-			this->atmMessage2->Size = System::Drawing::Size(131, 34);
-			this->atmMessage2->TabIndex = 1;
-			this->atmMessage2->Text = L"Insert card number \r\n        and PIN";
-			// 
 			// MainForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(828, 385);
+			this->ClientSize = System::Drawing::Size(360, 248);
 			this->Controls->Add(this->atmPanel2);
 			this->Controls->Add(this->atmPanel1);
 			this->Name = L"MainForm";
@@ -641,13 +641,13 @@ namespace CoursePaper {
 			this->atmPanel1->PerformLayout();
 			this->atmPanel2->ResumeLayout(false);
 			this->atmPanel2->PerformLayout();
+			this->withdrawPanel2->ResumeLayout(false);
+			this->withdrawPanel2->PerformLayout();
 			this->validationPanel2->ResumeLayout(false);
 			this->validationPanel2->PerformLayout();
 			this->menuPanel2->ResumeLayout(false);
 			this->transferPanel2->ResumeLayout(false);
 			this->transferPanel2->PerformLayout();
-			this->withdrawPanel2->ResumeLayout(false);
-			this->withdrawPanel2->PerformLayout();
 			this->ResumeLayout(false);
 
 		}
