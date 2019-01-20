@@ -1,19 +1,23 @@
 #pragma once
-#include<map>
 
 using namespace System;
 using namespace System::Data;
 using namespace System::Data::SqlClient;
 using namespace System::Collections::Generic;
 
+//#define MY_COMP
 ref class DBConnecter
 {
 private:
+#ifdef MY_COMP
 	static SqlConnection^ connection = gcnew SqlConnection("Data Source=DESKTOP-RUOJK26;Initial Catalog=Bank;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
 	static SqlCommand^ checkValidCommand = gcnew SqlCommand("select * from selectAll", connection);
 	static SqlCommand^ checkMoneyCommand = gcnew SqlCommand("checkMoney", connection);
 	static SqlCommand^ updateMoneyCommand = gcnew SqlCommand("updateMoney", connection);
 	static SqlCommand^ sendMoneyCommand = gcnew SqlCommand("sendMoney", connection);
+#else // MY_COMP
+	static Dictionary<long long, double>^ accountsMoney = gcnew Dictionary<long long, double>();
+#endif
 	static Dictionary<long long, int>^ accounts = gcnew Dictionary<long long, int>();
 public:
 	static DBConnecter();

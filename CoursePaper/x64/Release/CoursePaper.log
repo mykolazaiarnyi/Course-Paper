@@ -1,5 +1,2 @@
-﻿  MainForm.cpp
-c:\users\kolja\source\repos\course-paper\coursepaper\iexecutable.h(2): warning C4570: 'IExecutable': is not explicitly declared as abstract but has abstract functions
-  c:\users\kolja\source\repos\course-paper\coursepaper\iexecutable.h(2): note: 'void IExecutable::execute(void)': is abstract
-  c:\users\kolja\source\repos\course-paper\coursepaper\iexecutable.h(5): note: see declaration of 'IExecutable::execute'
+﻿  .NETFramework,Version=v4.6.1.AssemblyAttributes.cpp
   CoursePaper.vcxproj -> C:\Users\kolja\source\repos\Course-Paper\x64\Release\CoursePaper.exe

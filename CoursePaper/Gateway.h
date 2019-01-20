@@ -6,7 +6,7 @@ using namespace System::Threading;
 ref class Gateway
 {
 public:
-	static Thread^ thread = gcnew Thread(gcnew ThreadStart(run));;
+	static Thread^ thread = gcnew Thread(gcnew ThreadStart(run));
 	static Queue<IExecutable^>^ queue = gcnew Queue<IExecutable^>();
 	static void run();
 };

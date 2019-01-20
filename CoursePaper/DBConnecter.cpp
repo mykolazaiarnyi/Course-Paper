@@ -3,8 +3,10 @@ using namespace System;
 using namespace System::Data;
 using namespace System::Data::SqlClient;
 
+
 static DBConnecter::DBConnecter()
 {
+#ifdef MY_COMP
 	connection->Open();
 	SqlDataReader^ rdr = checkValidCommand->ExecuteReader();
 	while (rdr->Read())
@@ -23,6 +25,22 @@ static DBConnecter::DBConnecter()
 	sendMoneyCommand->Parameters->Add(gcnew SqlParameter("@Sender", nullptr));
 	sendMoneyCommand->Parameters->Add(gcnew SqlParameter("@Receiver", nullptr));
 	sendMoneyCommand->Parameters->Add(gcnew SqlParameter("@Amount", nullptr));
+#else // MY_COMP
+	accounts->Add(1111111111111110, 1111);
+	accountsMoney->Add(1111111111111110, 500);
+
+	accounts->Add(1111111111111111, 1111);
+	accountsMoney->Add(1111111111111111, 400);
+
+	accounts->Add(1111111111111112, 1111);
+	accountsMoney->Add(1111111111111112, 450);
+
+	accounts->Add(1111111111111113, 1111);
+	accountsMoney->Add(1111111111111113, 300);
+
+	accounts->Add(1111111111111114, 1111);
+	accountsMoney->Add(1111111111111114, 500);
+#endif
 }
 
 bool^ DBConnecter::checkValid(long long number, int pin, System::Windows::Forms::Control^ messageTarget)
@@ -44,6 +62,7 @@ bool^ DBConnecter::checkValid(long long number, int pin, System::Windows::Forms:
 
 bool^ DBConnecter::checkMoney(long long number, double amount)
 {
+#ifdef MY_COMP
 	try {
 		connection->Open();
 		checkMoneyCommand->Parameters["@Number"]->Value = number;
@@ -59,25 +78,32 @@ bool^ DBConnecter::checkMoney(long long number, double amount)
 		connection->Close();
 		throw e;
 	}
+#else
+	return accountsMoney[number] >= amount;
+#endif
 }
 
 void DBConnecter::updateMoney(long long number, double amount)
 {
+#ifdef MY_COMP
 	connection->Open();
 	updateMoneyCommand->Parameters["@Number"]->Value = number;
 	updateMoneyCommand->Parameters["@Amount"]->Value = amount;
 	updateMoneyCommand->ExecuteNonQuery();
 	connection->Close();
+#endif // MY_COMP
 }
 
 void DBConnecter::sendMoney(long long sender, long long receiver, double amount)
 {
+#ifdef MY_COMP
 	connection->Open();
 	sendMoneyCommand->Parameters["@Sender"]->Value = sender;
 	sendMoneyCommand->Parameters["@Receiver"]->Value = receiver;
 	sendMoneyCommand->Parameters["@Amount"]->Value = amount;
 	sendMoneyCommand->ExecuteNonQuery();
 	connection->Close();
+#endif // MY_COMP
 }
 
 bool^ DBConnecter::exists(long long number)
